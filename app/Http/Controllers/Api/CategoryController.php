@@ -40,9 +40,9 @@ class CategoryController extends Controller
         $dados = $request->all();
         $category = Category::create($dados);
         if ($category) {
-            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Product created success !'], 200);
+            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Product created success !'], 201);
         } else {
-            return response()->json(['data' => $category, 'status' => false, 'msg' => 'Error for  created category ! '], 501);
+            return response()->json(['data' => $category, 'status' => false, 'msg' => 'Error for  created category ! '], 404);
         }
     }
 
@@ -54,7 +54,12 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        if ($category) {
+            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Category found success !'], 200);
+        } else {
+            return response()->json(['data' => $category, 'status' => false, 'msg' => 'Not found category with $id ! '], 404);
+        }
     }
 
     /**
