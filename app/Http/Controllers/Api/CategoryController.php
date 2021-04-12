@@ -56,7 +56,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if ($category) {
-            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Category found success !'], 200);
+            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Category found with success !'], 200);
         } else {
             return response()->json(['data' => $category, 'status' => false, 'msg' => 'Not found category with $id ! '], 404);
         }
