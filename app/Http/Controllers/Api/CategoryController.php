@@ -100,6 +100,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        if ($category) {
+            return response()->json(['data' => 'Category deleted with success !!! ', 'status' => true, 'msg' => 'Category updated success !'], 200);
+        } else {
+            return response()->json(['data' => $category, 'status' => false, 'msg' => 'Not found category to delete with $id ! '], 404);
+        }
+
     }
 }
