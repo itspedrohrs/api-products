@@ -13,4 +13,4 @@ Route::get('categories', 'api\\CategoryController@index');
 Route::post('categories', 'api\\CategoryController@store');
 Route::get('categories/{id}', 'api\\CategoryController@show');
 Route::put('categories/{id}', 'api\\CategoryController@update');
-Route::delete('categories/{id}', 'api\\CategoryController@delete');
+Route::delete('categories/{id}', 'api\\CategoryController@destroy');
