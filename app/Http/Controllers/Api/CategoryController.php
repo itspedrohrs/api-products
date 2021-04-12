@@ -82,7 +82,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $dados = $request->all();
+        $category->update($dados);
+        if ($category) {
+            return response()->json(['data' => $category, 'status' => true, 'msg' => 'Category updated success !'], 200);
+        } else {
+            return response()->json(['data' => $category, 'status' => false, 'msg' => 'Not found category to update with $id ! '], 404);
+        }
     }
 
     /**
