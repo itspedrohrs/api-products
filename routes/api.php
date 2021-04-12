@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('products', 'api\\ProductController@index');
-Route::post('products', 'api\\ProductController@create');
+Route::post('products', 'api\\ProductController@store');
 Route::get('products/{id}', 'api\\ProductController@show');
 Route::put('products/{id}', 'api\\ProductController@update');
 Route::delete('products/{id}', 'api\\ProductController@destroy');
