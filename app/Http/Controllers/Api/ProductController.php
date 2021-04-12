@@ -31,7 +31,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        if ($products) {
+            return response()->json(['data' => $products, 'status' => true, 'msg' => 'List found products with success !'], 200);
+        } else {
+            return response()->json(['data' => $products, 'status' => false, 'msg' => 'Not found products'], 404);
+        }
     }
 
     /**
@@ -60,7 +65,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        if ($product) {
+            return response()->json(['data' => $product, 'status' => true, 'msg' => 'Product found with success !'], 200);
+        } else {
+            return response()->json(['data' => $product, 'status' => false, 'msg' => 'Not found ! for specific product by id '], 404);
+        }
     }
 
     /**
@@ -83,7 +94,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $dados = $request->all();
+
+        if ($product) {
+            $product->update($dados);
+            return response()->json(['data' => $product, 'status' => true, 'msg' => 'Update product with success !'], 200);
+        } else {
+            return response()->json(['data' => $product, 'status' => false, 'msg' => 'Not found ! for specific update product by id '], 404);
+        }
     }
 
     /**
