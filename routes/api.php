@@ -7,7 +7,7 @@ Route::get('products', 'api\\ProductController@index');
 Route::post('products', 'api\\ProductController@create');
 Route::get('products/{id}', 'api\\ProductController@show');
 Route::put('products/{id}', 'api\\ProductController@update');
-Route::delete('products/{id}', 'api\\ProductController@delete');
+Route::delete('products/{id}', 'api\\ProductController@destroy');
 
 Route::get('categories', 'api\\CategoryController@index');
 Route::post('categories', 'api\\CategoryController@store');
