@@ -104,7 +104,7 @@ class CategoryController extends Controller
         $category->delete();
 
         if ($category) {
-            return response()->json(['data' => 'Category deleted with success !!! ', 'status' => true, 'msg' => 'Category updated success !'], 200);
+            return response()->json(['status' => true, 'msg' => 'Category deleted with success !!! '], 200);
         } else {
             return response()->json(['data' => $category, 'status' => false, 'msg' => 'Not found category to delete with $id ! '], 404);
         }
