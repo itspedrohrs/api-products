@@ -1,4 +1,4 @@
-## System register prodcuts and categories
+## System register products and categories
 
 System options simple register,updated,deleted in categories and products.
 
